@@ -1,0 +1,17 @@
+<div class="container mt-4 text-center">
+  <app-number-input
+    (firstNumber)="receiveFromInput($event)"
+    (secondNumber)="receiveFromInput($event)"
+  ></app-number-input>
+
+  <app-operation (operation)="receiveOperation($event)"></app-operation>
+
+  <app-result
+    *ngIf="
+      operation &&
+      (firstNumber || firstNumber == 0) &&
+      (secondNumber || secondNumber == 0)
+    "
+    [receive]="value"
+  ></app-result>
+</div>
